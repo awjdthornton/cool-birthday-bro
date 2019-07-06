@@ -12,11 +12,12 @@ def index(request):
         <a href="/github-api-example">See my GitHub contributions</a> <br />
         <a href="/date-trivia">Birthday Trivia</a> <br />
     ''')
-    
+
+data = ''
 def date_trivia(request):
-	month = request.POST.get('message')
+	month = request.POST.get('month')
 	print('Month provided:', month)
-	day = request.POST.get('myname')
+	day = request.POST.get('day')
 	print('Day provided:', day)
 	if month and day:
 		response = requests.get('http://numbersapi.com/' + month + '/' + day + '/date')
@@ -29,7 +30,12 @@ def date_trivia(request):
 			<input name="day" placeholder="i.e. 1 - 31)" />
 			<button>Submit</button>
 		</form>
-		<p>Some fun trivia ->''' + '<placholder>' + '</p> <br />')
+		<p>Some fun trivia ->''' + '<placeholder for data>' + '</p> <br />')
+		
+def date_trivia_get(month,date)
+		response = requests.get('http://numbersapi.com/' + month + '/' + day + '/date')
+		print(response)
+		return response
 
 
 def about_me(request):
