@@ -13,16 +13,14 @@ def index(request):
         <a href="/date-trivia">Birthday Trivia</a> <br />
     ''')
 
-data = ''
+trivia = ''
 def date_trivia(request):
 	month = request.POST.get('month')
 	print('Month provided:', month)
 	day = request.POST.get('day')
 	print('Day provided:', day)
 	if month and day:
-		response = requests.get('http://numbersapi.com/' + month + '/' + day + '/date')
-		data = response.json()
-		print(data)
+		trivia = date_trivia_get(month,day)
 	return HttpResponse('''
 		<h1>Welcome to Birthday Trivia</h1>
 		<form method="POST" action="/date-trivia">
@@ -30,12 +28,13 @@ def date_trivia(request):
 			<input name="day" placeholder="i.e. 1 - 31)" />
 			<button>Submit</button>
 		</form>
-		<p>Some fun trivia ->''' + '<placeholder for data>' + '</p> <br />')
+		<p>Some fun trivia ->''' + trivia + '</p> <br />')
 		
-def date_trivia_get(month,date)
-		response = requests.get('http://numbersapi.com/' + month + '/' + day + '/date')
-		print(response)
-		return response
+def date_trivia_get(month,day):
+		response = requests.get('http://numbersapi.com/' + month + '/' + day + '/date?json')
+		data = response.json()
+		print(data['text'])
+		return data['text']
 
 
 def about_me(request):
