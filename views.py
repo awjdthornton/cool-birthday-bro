@@ -13,8 +13,8 @@ def index(request):
         <a href="/date-trivia">Birthday Trivia</a> <br />
     ''')
 
-trivia = ''
 def date_trivia(request):
+	trivia = ''
 	month = request.POST.get('month')
 	print('Month provided:', month)
 	day = request.POST.get('day')
