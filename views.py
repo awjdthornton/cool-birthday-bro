@@ -14,9 +14,14 @@ def index(request):
     ''')
     
 def date_trivia(request):
-	response = requests.get('http://numbersapi.com/' + month + '/' + date + '/date'
+	month = input('What is your birth month (i.e. 1 - 12)? ')
+	day = input('What is your birth day (i.e. 1 - 31)? ')
+	response = requests.get('http://numbersapi.com/' + month + '/' + day + '/date'
 	data = response.json()
 	print(data)
+	return HttpResponse('''
+		<h1>Welcome to Birthday Trivia</h1>
+		<p>''' + data + '</p> <br />')
 
 
 def about_me(request):
