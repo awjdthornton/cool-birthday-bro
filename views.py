@@ -10,7 +10,13 @@ def index(request):
         <h1>Welcome to my home page!</h1>
         <a href="/about-me">About me</a> <br />
         <a href="/github-api-example">See my GitHub contributions</a> <br />
+        <a href="/date-trivia">Birthday Trivia</a> <br />
     ''')
+    
+def date_trivia(request):
+	response = requests.get('http://numbersapi.com/' + month + '/' + date + '/date'
+	data = response.json()
+	print(data)
 
 
 def about_me(request):
