@@ -28,7 +28,7 @@ def date_trivia(request):
 			<input name="day" placeholder="i.e. 1 - 31" />
 			<button>Submit</button>
 		</form>
-		<p>Some fun trivia ->''' + trivia + '</p> <br />')
+		<p>Some fun trivia -> ''' + trivia + '</p> <br />')
 		
 def date_trivia_get(month,day):
 		response = requests.get('http://numbersapi.com/' + month + '/' + day + '/date?json')
