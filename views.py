@@ -25,7 +25,7 @@ def date_trivia(request):
 		<h1>Welcome to Birthday Trivia</h1>
 		<form method="POST" action="/date-trivia">
 			<input name="month" placeholder="i.e. 1 - 12" />
-			<input name="day" placeholder="i.e. 1 - 31)" />
+			<input name="day" placeholder="i.e. 1 - 31" />
 			<button>Submit</button>
 		</form>
 		<p>Some fun trivia ->''' + trivia + '</p> <br />')
