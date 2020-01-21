@@ -8,6 +8,5 @@ django = "==2.0.1"
 requests = "*"
 
 [requires]
-python_version = "3.6"
 
 [dev-packages]
